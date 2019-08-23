@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     TextView dropped = (TextView) dropView;
 
                     //update the text in the target view to reflect the data being dropped
+                    //TODO: answer checking.
                     dropTarget.setText(dropped.getText());
 
                     //make it bold to highlight the fact that an item has been dropped
