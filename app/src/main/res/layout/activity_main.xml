@@ -1,17 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout android:id="@+id/wordBank"
+    <LinearLayout android:id="@+id/word_bank"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#EE501B"
         android:gravity="center"
-        >
+        android:orientation="vertical">
         <TextView android:id="@+id/word1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:text="Draggable Text"
+            android:textSize="20sp" />
+
     </LinearLayout>
+    <LinearLayout android:id="@+id/word1_slot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#00ADEF"
+        android:gravity="center"
+        android:orientation="vertical" />
+    <LinearLayout android:id="@+id/word2_slot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#80CC28"
+        android:gravity="center"
+        android:orientation="vertical" />
 </LinearLayout>
