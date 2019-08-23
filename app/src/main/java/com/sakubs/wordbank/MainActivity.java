@@ -16,7 +16,6 @@ import android.view.View.OnTouchListener;
 import android.widget.TextView;
 
 
-
 public class MainActivity extends AppCompatActivity {
 
     private TextView option1, option2, option3, choice1, choice2, choice3;
@@ -99,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     View dropView = (View) dragEvent.getLocalState();
 
                     //stop displaying the view where it was before it was dragged
-                    view.setVisibility(View.INVISIBLE);
+                    dropView.setVisibility(View.INVISIBLE);
 
                     //view dragged item is being dropped on
                     TextView dropTarget = (TextView) view;
