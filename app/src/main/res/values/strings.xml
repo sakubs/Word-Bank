@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Word Bank</string>
+    <string-array name="nouns">
+        <item>pond</item>
+        <item>pad</item>
+        <item>dad</item>
+        <item>rock</item>
+        <item>frog</item>
+    </string-array>
 </resources>
