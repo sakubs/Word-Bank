@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Resources resources = getResources();
-        wordBankList = resources.getStringArray(R.array.nouns);
+        wordBankList = resources.getStringArray(R.array.word_bank);
 
 
     }
