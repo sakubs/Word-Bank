@@ -1,33 +1,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout android:id="@+id/word_bank"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#EE501B"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp" >
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
-        <TextView android:id="@+id/word1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Draggable Text"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-    <LinearLayout android:id="@+id/word1_slot"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#00ADEF"
+        android:paddingBottom="10dp"
+        android:text="@string/instruction"
+        />
+    <TextView
+        android:id="@+id/option_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/option"
         android:gravity="center"
-        android:orientation="vertical" />
-    <LinearLayout android:id="@+id/word2_slot"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#80CC28"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/option_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/option"
         android:gravity="center"
-        android:orientation="vertical" />
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/option_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/option"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/choice_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/choice"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/choice_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/choice"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/choice_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/choice"
+        android:gravity="center"
+        />
 </LinearLayout>

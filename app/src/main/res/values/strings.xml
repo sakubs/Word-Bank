@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">Word Bank</string>
+    <string name="instruction">Drag the word that best fits to the answer box</string>
     <string-array name="word_bank">
         <item>pond</item>
         <item>pad</item>
         <item>dad</item>
         <item>rock</item>
         <item>frog</item>
+    </string-array>
+    <string-array name="sentence_bank">
+        <item>The mom is in the ____.</item>
+        <item>The dad sits on a ____.</item>
+        <item>Is that big, fat frog the ____?</item>
     </string-array>
 </resources>
