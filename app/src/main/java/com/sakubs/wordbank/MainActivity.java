@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* The draggable words in the word bank. */
     protected String[] wordBankList;
-    protected String[] sentenceList;
+    protected String[] correctAnswers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         Resources resources = getResources();
         wordBankList = resources.getStringArray(R.array.word_bank);
-        sentenceList = resources.getStringArray(R.array.sentence_bank);
+        correctAnswers = resources.getStringArray(R.array.correct_answers);
 
         //views to drag
         option1 = (TextView)findViewById(R.id.option_1);
@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         choice1 = (TextView)findViewById(R.id.choice_1);
         choice2 = (TextView)findViewById(R.id.choice_2);
         choice3 = (TextView)findViewById(R.id.choice_3);
+
+        // Set answer key
 
         //set touch listeners
         option1.setOnTouchListener(new ChoiceTouchListener());
@@ -57,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
         option1.setText(wordBankList[0]);
         option2.setText(wordBankList[1]);
         option3.setText(wordBankList[2]);
-        choice1.setText(sentenceList[0]);
-        choice2.setText(sentenceList[1]);
-        choice3.setText(sentenceList[2]);
+        choice1.setText(getString(R.string.sentence1, "____"));
+        choice2.setText(getString(R.string.sentence2, "____"));
+        choice3.setText(getString(R.string.sentence3, "____"));
     }
 
     private final class ChoiceTouchListener implements OnTouchListener {
@@ -108,24 +110,42 @@ public class MainActivity extends AppCompatActivity {
 
                     //update the text in the target view to reflect the data being dropped
                     //TODO: answer checking.
-                    dropTarget.setText(dropped.getText());
+                    String word = dropped.getText().toString();
+                    String sentence = dropTarget.getText().toString().replace("____", word);
+                    //dropTarget.setText(dropped.getText());
+                    boolean isCorrect = false;
 
-                    //make it bold to highlight the fact that an item has been dropped
-                    dropTarget.setTypeface(Typeface.DEFAULT_BOLD);
-
-                    //if an item has already been dropped here, there will be a tag
-                    Object tag = dropTarget.getTag();
-
-                    //if there is already an item here, set it back visible in its original place
-                    if(tag!=null) {
-                        //the tag is the view id already dropped here
-                        int existingID = (Integer)tag;
-                        //set the original view visible again
-                        findViewById(existingID).setVisibility(View.VISIBLE);
+                    for (int i = 0; i < correctAnswers.length; i++){
+                        if (sentence.equals(correctAnswers[i])){
+                            isCorrect = true;
+                            break;
+                        }
                     }
 
-                    //set the tag in the target view to the ID of the view being dropped
-                    dropTarget.setTag(dropped.getId());
+                    if (isCorrect) {
+                        dropTarget.setText(sentence);
+
+                        //make it bold to highlight the fact that an item has been dropped
+                        dropTarget.setTypeface(Typeface.DEFAULT_BOLD);
+
+
+                        //if an item has already been dropped here, there will be a tag
+                        Object tag = dropTarget.getTag();
+
+                        //if there is already an item here, set it back visible in its original place
+                        if (tag != null) {
+                            //the tag is the view id already dropped here
+                            int existingID = (Integer) tag;
+                            //set the original view visible again
+                            findViewById(existingID).setVisibility(View.VISIBLE);
+                        }
+
+                        //set the tag in the target view to the ID of the view being dropped
+                        dropTarget.setTag(dropped.getId());
+                    } else {
+                        //set the original view visible again
+                        findViewById(dropped.getId()).setVisibility(View.VISIBLE);
+                    }
 
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
