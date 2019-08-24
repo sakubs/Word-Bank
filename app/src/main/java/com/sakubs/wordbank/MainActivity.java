@@ -89,12 +89,15 @@ public class MainActivity extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_STARTED:
                     //no action necessary
                     break;
+
                 case DragEvent.ACTION_DRAG_ENTERED:
                     //no action necessary
                     break;
+
                 case DragEvent.ACTION_DRAG_EXITED:
                     //no action necessary
                     break;
+
                 case DragEvent.ACTION_DROP:
                     //handle the dragged view being dropped over a drop view
                     View dropView = (View) dragEvent.getLocalState();
@@ -109,10 +112,9 @@ public class MainActivity extends AppCompatActivity {
                     TextView dropped = (TextView) dropView;
 
                     //update the text in the target view to reflect the data being dropped
-                    //TODO: answer checking.
                     String word = dropped.getText().toString();
                     String sentence = dropTarget.getText().toString().replace("____", word);
-                    //dropTarget.setText(dropped.getText());
+
                     boolean isCorrect = false;
 
                     for (int i = 0; i < correctAnswers.length; i++){
@@ -143,8 +145,12 @@ public class MainActivity extends AppCompatActivity {
                         //set the tag in the target view to the ID of the view being dropped
                         dropTarget.setTag(dropped.getId());
                     } else {
-                        //set the original view visible again
+                        //set the original view visible again.
                         findViewById(dropped.getId()).setVisibility(View.VISIBLE);
+
+                        dropTarget.setText(dropTarget.getText().toString().replace(word, "____"));
+                        dropTarget.setTag(null);
+
                     }
 
                     break;
